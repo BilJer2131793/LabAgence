@@ -1,7 +1,11 @@
 #include "Livraison.h"
-Livraison::Livraison(string nom, int attack, int defense, int vie, int capacite) : Vaisseau(nom, attack, defense, vie, capacite)
+Livraison::Livraison(Faction* faction) : Vaisseau(faction)
 {
-
+	this->nom = "Livraisson";
+	this->attaque = 4;
+	this->defense = 8;
+	this->capacite = 4;
+	this->vie = 15;
 }
 Livraison::~Livraison() {
 

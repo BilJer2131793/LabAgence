@@ -1,16 +1,13 @@
 #include "Vaisseau.h"
 
 
-Vaisseau::Vaisseau(string nom, int attack, int defense, int vie, int capacite)
+Vaisseau::Vaisseau(Faction* faction)
 {
-	this->nom = nom;
-	this->attaque = attack;
-	this->defense = defense;
-	this->vie = vie;
-	this->capacite = capacite;
+	this->faction = faction;
 }
 Vaisseau::~Vaisseau() {
-
+	delete faction;
+	faction = nullptr;
 }
 int Vaisseau::getVie() {
 	return vie;

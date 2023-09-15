@@ -1,24 +1,22 @@
 #include <iostream>
-#include "Livraison.h"
-#include "Transport.h"
-#include "Guerre.h"
-#include "Faction.h"
+#include <ctime>
+#include "Vaisseau.h"
+#include "FactoryVaisseau.h"
 using std::cout;
 using std::endl;
 
 
 int main()
 {
-    Vaisseau* v = new Vaisseau("s",1,1,1,1);
-    cout << v->to_string() << endl;
-    Transport* t = new Transport("d",2,2,2,2);
-    cout << t->to_string() << endl;
-    Faction* rouge = new Faction("Rouge", 1,1,1,1);
-    Faction* bleu = new Faction("bleu", 1, 1, 1, 1);
+    srand(time(NULL));
+    cout << "vaisseau en production" << endl;
+    Vaisseau* monVaisseau = FactoryVaisseau::getRandomVaisseau();
+    cout << monVaisseau->to_string();
 
 
 
-    delete v;
-    delete t;
+    delete monVaisseau;
+
+    return 0;
 }
 

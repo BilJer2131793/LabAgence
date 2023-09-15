@@ -5,16 +5,17 @@ using std::string;
 
 class Vaisseau
 {
-private:
+protected:
 	int attaque;
 	int defense;
 	int vie;
 	int capacite;
+	Faction* faction;
 	string nom;
 	int niveau;
 	int exp;
 public:
-	Vaisseau(string nom, int attack, int defense, int vie, int capacite);
+	Vaisseau(Faction* faction);
 	~Vaisseau();
 	int getVie();
 	int getAtk();

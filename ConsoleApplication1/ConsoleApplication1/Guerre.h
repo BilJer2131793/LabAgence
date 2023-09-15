@@ -3,7 +3,7 @@
 class Guerre : public Vaisseau
 {
 public:
-	Guerre(string nom, int attack, int defense, int vie, int capacite);
+	Guerre(Faction* faction);
 	~Guerre();
 
 	virtual string to_string();

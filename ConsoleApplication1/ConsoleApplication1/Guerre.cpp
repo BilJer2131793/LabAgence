@@ -1,8 +1,12 @@
 #include "Guerre.h"
 
-Guerre::Guerre(string nom, int attack, int defense, int vie, int capacite) : Vaisseau(nom, attack, defense, vie, capacite)
+Guerre::Guerre(Faction* faction) : Vaisseau(faction)
 {
-
+	this->nom = "Guerre";
+	this->attaque = 10;
+	this->defense = 8;
+	this->capacite = 3;
+	this->vie = 14;
 }
 Guerre::~Guerre() {
 

@@ -1,7 +1,11 @@
 #include "Transport.h"
-Transport::Transport(string nom, int attack, int defense, int vie, int capacite) : Vaisseau(nom, attack, defense, vie, capacite)
+Transport::Transport(Faction* faction) : Vaisseau(faction)
 {
-
+	this->nom = "Transport";
+	this->attaque = 2;
+	this->defense = 6;
+	this->capacite = 10;
+	this->vie = 8;
 }
 Transport::~Transport() {
 
