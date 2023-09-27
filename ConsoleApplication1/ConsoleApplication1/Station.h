@@ -23,7 +23,7 @@ public:
 	vector<Vaisseau*> getVaisseauDispo();
 	void Init();
 	void ajouterVaisseau(Vaisseau* vaisseau);
-	void AfficherVaisseau();
+	int AfficherVaisseau();
 
 	//Section Magasin
 	void Magasin();
@@ -32,6 +32,7 @@ public:
 	void ReparerVaisseau();
 	void AcheterVaisseau();
 	void AugmenterVaisseau();
+	void AugmenterStat(int v);
 	void VendreVaisseau();
 	void clear_screen(char fill);
 };

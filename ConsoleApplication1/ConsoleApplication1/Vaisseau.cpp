@@ -12,11 +12,20 @@ Vaisseau::~Vaisseau() {
 int Vaisseau::getVie() {
 	return vie;
 }
+void Vaisseau::setVie(int vie) {
+	this->vie = vie;
+}
 int Vaisseau::getAtk() {
 	return attaque;
 }
+void Vaisseau::setAtk(int atk) {
+	this->attaque = atk;
+}
 int Vaisseau::getDef() {
 	return defense;
+}
+void Vaisseau::setDef(int def) {
+	this->defense = def;
 }
 void Vaisseau::setNiv() {
 

@@ -18,8 +18,11 @@ public:
 	Vaisseau(Faction* faction);
 	~Vaisseau();
 	int getVie();
+	void setVie(int vie);
 	int getAtk();
+	void setAtk(int atk);
 	int getDef();
+	void setDef(int def);
 	void setNiv();
 	void setXP();
 
