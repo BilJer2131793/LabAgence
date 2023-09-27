@@ -21,22 +21,27 @@ Vaisseau* FactoryVaisseau::getRandomVaisseau()
 {
 	Vaisseau* vaisseau(0);
 
+	int typeV = genererNB(1, 3);
+	vaisseau = GenererVaisseau(typeV);
+
+	return vaisseau;
+
+}
+Vaisseau* FactoryVaisseau::GenererVaisseau(int typeV)
+{
+	Vaisseau* vaisseau(0);
 	Faction* maFaction = getRandomFaction();
 
-
-	int typeV = genererNB(1, 3);
 	if (typeV == 1) {
 		vaisseau = new Guerre(maFaction);
 	}
 	else if (typeV == 2) {
 		vaisseau = new Transport(maFaction);
 	}
-	else if (typeV == 3){
+	else if (typeV == 3) {
 		vaisseau = new Livraison(maFaction);
 	}
-
 	return vaisseau;
-
 }
 Faction* FactoryVaisseau::getRandomFaction()
 {

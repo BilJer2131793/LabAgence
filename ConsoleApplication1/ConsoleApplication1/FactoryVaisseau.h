@@ -6,6 +6,7 @@ public:
 	FactoryVaisseau();
 	~FactoryVaisseau();
 	static Vaisseau* getRandomVaisseau();
+	static Vaisseau* GenererVaisseau(int typeV);
 	static int genererNB(int min, int max);
 
 private:
