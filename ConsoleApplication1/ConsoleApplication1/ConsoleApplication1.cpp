@@ -15,11 +15,9 @@ int main()
     cout << monVaisseau->to_string();
 
     delete monVaisseau;
-    cout << "asdkahusgdhjkasg";
     Station *Logan;
     Logan = new Station();
     Logan->Init();
-    cout << "asdkahusgdhjkasg";
     Logan->Magasin();
 
     return 0;
