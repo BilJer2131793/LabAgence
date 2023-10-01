@@ -1,16 +1,24 @@
 #include "Transport.h"
+
 Transport::Transport(Faction* faction) : Vaisseau(faction)
 {
-	this->nom = "Transport";
-	this->attaque = 2;
-	this->defense = 6;
-	this->capacite = 10;
-	this->vie = 8;
+	vie = 8;
+	defense = 5;
+	attaque = 3;
+	capacite = 10;
+	niveau = 0;
+	exp = 0;
+	valeurMarchande = 1000;
 }
-Transport::~Transport() {
 
-}
-string Transport::to_string() {
-	string msg = "Je suis un vaisseau de transport";
-	return msg;
+Transport::~Transport() {}
+
+std::string Transport::to_string()
+{
+	std::string info = "";
+	info.append("Type : Transport \n");
+	info.append("nom : Vincent \n");
+	info += Vaisseau::to_string();
+
+	return info;
 }

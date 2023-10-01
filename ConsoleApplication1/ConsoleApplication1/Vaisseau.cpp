@@ -27,12 +27,25 @@ int Vaisseau::getDef() {
 void Vaisseau::setDef(int def) {
 	this->defense = def;
 }
-void Vaisseau::setNiv() {
-
+int Vaisseau::getCap() {
+	return capacite;
 }
-void Vaisseau::setXP() {
-
+void Vaisseau::setCap(int cap) {
+	this->capacite = cap;
 }
+bool Vaisseau::getDispo() {
+	return dispo;
+}
+void Vaisseau::setDispo(bool dispo) {
+	this->dispo = dispo;
+}
+int Vaisseau::getDistance() {
+	return distance;
+}
+void Vaisseau::setDistance(int dist) {
+	this -> distance = dist;
+}
+
 string Vaisseau::to_string() {
 	return "Vaisseu";
 }

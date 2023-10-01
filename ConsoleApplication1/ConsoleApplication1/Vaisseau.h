@@ -6,14 +6,17 @@ using std::string;
 class Vaisseau
 {
 protected:
+	Faction* faction;
+	string nom;
 	int attaque;
 	int defense;
 	int vie;
 	int capacite;
-	Faction* faction;
-	string nom;
+	int valeurMarchande;
 	int niveau;
 	int exp;
+	bool dispo;
+	int distance;
 public:
 	Vaisseau(Faction* faction);
 	~Vaisseau();
@@ -23,8 +26,12 @@ public:
 	void setAtk(int atk);
 	int getDef();
 	void setDef(int def);
-	void setNiv();
-	void setXP();
+	int getCap();
+	void setCap(int cap);
+	bool getDispo();
+	void setDispo(bool dispo);
+	int getDistance();
+	void setDistance(int dist);
 
 	virtual string to_string();
 

@@ -10,15 +10,15 @@ static int wow;
 int main()
 {
     srand(time(NULL));
-    cout << "vaisseau en production" << endl;
-    Vaisseau* monVaisseau = FactoryVaisseau::getRandomVaisseau();
-    cout << monVaisseau->to_string();
 
-    delete monVaisseau;
+
     Station *Logan;
     Logan = new Station();
     Logan->Init();
-    Logan->Magasin();
+    Logan->Jeux();
+
+    delete Logan;
+
 
     return 0;
 }
