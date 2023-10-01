@@ -4,8 +4,8 @@ Guerre::Guerre(Faction* faction) : Vaisseau(faction)
 {
 
 	vie = 8;
-	defense = 5;
-	attaque = 8;
+	defense = 7;
+	attaque = 10;
 	capacite = 2;
 	niveau = 0;
 	exp = 0;

@@ -1,10 +1,13 @@
 #include "Station.h"
+#include <chrono>
+#include <thread>
+
 
 
 Station::Station()
 {
 	this->platinumDispo = 100000;
-	this->capMax = 3;
+	this->capMax = 4;
 }
 
 Station::~Station()
@@ -13,7 +16,7 @@ Station::~Station()
 
 void Station::Jeux() {
 	missions = GenereMission();
-	while (true)
+	while (!CheckJeuxFini())
 	{
 		Magasin();
 		Missions();
@@ -24,6 +27,7 @@ void Station::Jeux() {
 
 		CheckMissionEnCours();
 		CheckMissionFini();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	}
 
 }
@@ -43,6 +47,16 @@ int Station::AfficherVaisseau()
 		cout << "(" << i << ") " << vecVaisseau[i - 1]->to_string() << endl;
 	}
 	return i;
+}
+
+bool Station::CheckJeuxFini()
+{
+	for (auto mis : missions)
+		if (mis->distance > 0)
+		{
+			return false;
+		}
+	return true;
 }
 
 

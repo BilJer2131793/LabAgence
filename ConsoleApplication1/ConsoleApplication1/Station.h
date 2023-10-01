@@ -18,8 +18,7 @@ private:
 	int vieStation;
 	int capMax;
 	vector<Vaisseau*> vecVaisseau;
-	std::list<Mission*> missions;
-
+	vector<Mission*> missions;
 
 public:
 	Station();
@@ -29,13 +28,13 @@ public:
 	void Init();
 	void ajouterVaisseau(Vaisseau* vaisseau);
 	int AfficherVaisseau();
+	bool CheckJeuxFini();
 
 	//Section Mission
-	std::list<Mission*> GenereMission();
+	vector<Mission*> GenereMission();
 	Mission* ObjectifMission(int mission);
-	Mission* getMission(int _i);
 	void Missions();
-	void DemarerMission(string objectif);
+	void DemarerMission(int choix);
 	void CheckMissionEnCours();
 	void CheckMissionFini();
 	int AfficherMission();

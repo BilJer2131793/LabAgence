@@ -17,17 +17,14 @@ void Station::Missions()
 		{
 			if (stoi(choix)<quitter)
 			{
-				Mission* m = getMission(stoi(choix)-1);
-				if (m->etat == 0)
+				if (missions[stoi(choix)-1]->etat == 0)
 				{
-					DemarerMission(m->objectif);
+					DemarerMission(stoi(choix) - 1);
 				}
 				else
 				{
 					cout << "La mission est deja en cours/completer";
 				}
-				delete m;
-				m = nullptr;
 
 			}
 		}
@@ -37,14 +34,6 @@ void Station::Missions()
 			std::cin;
 		}
 	}
-}
-Mission* Station::getMission(int _i) 
-{
-	std::list<Mission*>::iterator it = missions.begin();
-	for (int i = 0; i < _i; i++) {
-		++it;
-	}
-	return *it;
 }
 int Station::AfficherMission() {
 
@@ -67,12 +56,11 @@ bool Station::CheckSpecVaisseau(Vaisseau* v, Mission* m) {
 	return false;
 }
 
-void Station::DemarerMission(string objectif)
+void Station::DemarerMission(int choix)
 {
-	for (auto mis : missions)
-		if (mis->etat == 0 && mis->objectif == objectif)
+		if (missions[choix]->etat == 0)
 		{
-			mis->etat = Mission::EtatMission::EnCours;
+			missions[choix]->etat = Mission::EtatMission::EnCours;
 		}
 }
 
@@ -81,22 +69,36 @@ void Station::CheckMissionEnCours()
 	for (auto mis : missions)
 		if (mis->etat == 1)
 		{
-			mis->distance -= 5000;
+			mis->distance -= 500;
 		}
 }
 
 void Station::CheckMissionFini() 
 {
-	for (auto mis : missions)
-		if (mis->etat == 1 and mis->distance == 0)
+	//check si une mission a etet effacer pour pas faire le i++ apres ce qui efface la mauvaise mission et cause un vector overflow
+	bool missionAEtetEffacer;
+
+	int i = 0;
+	for (auto mis : missions) {
+		missionAEtetEffacer = false;
+		if (mis->distance <= 0)
 		{
+			missionAEtetEffacer = true;
 			mis->etat + 1;
 			platinumDispo += mis->platinum;
-			/*cout << "La mission avec le but: " << mis->objectif << "a ete completer avec success";*/
+			delete missions[i];
+			missions.erase(missions.begin() + i);
+
 		}
+		if (!missionAEtetEffacer)
+		{
+			i++;
+		}
+	}
+
 }
 
-std::list<Mission*> Station::GenereMission()
+vector<Mission*> Station::GenereMission()
 {
 	int max;
 	if (capMax == 5)
@@ -104,7 +106,7 @@ std::list<Mission*> Station::GenereMission()
 	else
 		max = 4;
 
-	std::list<Mission*> Missions;
+	vector<Mission*> Missions;
 	for (int i = 0; i < capMax; i++)
 	{
 		int objMission = (rand() % (max - 1 + 1)) + 1;

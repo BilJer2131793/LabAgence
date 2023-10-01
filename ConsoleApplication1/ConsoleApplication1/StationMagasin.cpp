@@ -109,17 +109,17 @@ void Station::AcheterVaisseau()
 		clear_screen(' ');
 		string choix = "";
 		cout << "Bienvenue aux Magasin			Capacite du Garage:" << vecVaisseau.size() << "/" << capMax << "			Platinum: " << platinumDispo << endl;
-		cout << "(1) Vaisseau de Guerre		Atk:	Def:	Cap:	Vit:	Prix: " << endl;
-		cout << "(2) Vaisseau de Transport	Atk:	Def:	Cap:	Vit:	Prix: " << endl;
-		cout << "(3) Vaisseau de Livraison	Atk:	Def:	Cap:	Vit:	Prix: " << endl;
+		cout << "(1) Vaisseau de Guerre		Atk: 10	Def: 7	Cap: 2	Prix: 1000" << endl;
+		cout << "(2) Vaisseau de Transport	Atk: 3	Def: 5	Cap: 7	Prix: 1000" << endl;
+		cout << "(3) Vaisseau de Livraison	Atk: 1	Def: 4	Cap: 10	Prix: 1000" << endl;
 		cout << "(4) Quitter";
 		cout << endl << "Faites votre choix" << endl;
 
 		std::cin >> choix;
 
 		if (choix == "1") {
-			if (CheckArgent(2000) && CheckCapacite()) {
-				this->platinumDispo -= 2000;
+			if (CheckArgent(1000) && CheckCapacite()) {
+				this->platinumDispo -= 1000;
 				Vaisseau* nouvVaisseau = FactoryVaisseau::GenererVaisseau(1);
 				vecVaisseau.push_back(nouvVaisseau);
 				std::cin;

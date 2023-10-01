@@ -5,7 +5,7 @@ Transport::Transport(Faction* faction) : Vaisseau(faction)
 	vie = 8;
 	defense = 5;
 	attaque = 3;
-	capacite = 10;
+	capacite = 7;
 	niveau = 0;
 	exp = 0;
 	valeurMarchande = 1000;
